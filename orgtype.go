@@ -1,23 +1,21 @@
 package orgtype
 
-var AVar bool
+import "github.com/codyoss/newtype/pb"
 
-const AConst = 1
+var AVar = pb.AVar
 
-func AFunc() {}
+const AConst = pb.AConst
 
-func AnotherFunc(*AType) *AnotherType {
-	return nil
+func AFunc() {
+	pb.AFunc()
 }
 
-type AType struct {
-	AField bool
+func AnotherFunc(a *AType) *AnotherType {
+	return pb.AnotherFunc(a)
 }
 
-type AnotherType struct {
-	AField int
-}
+type AType = pb.AType
 
-type AInterface interface {
-	AMethod(*AType) AnotherType
-}
+type AnotherType = pb.AnotherType
+
+type AInterface = pb.AInterface
